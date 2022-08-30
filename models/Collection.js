@@ -8,7 +8,7 @@ const CollectionSchema = new mongooose.Schema({
     description: {
         type: String,
         required: true,
-    }, 
+    },
     topic: {
         type: String,
         enum: ["books", "films", "sings", "games"],
@@ -28,14 +28,14 @@ const CollectionSchema = new mongooose.Schema({
         default: 0,
     },
     user: {
-    type: mongooose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
+        type: mongooose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
     }
-    
-}, 
-{
-    timestamps: true,
-})
+
+},
+    {
+        timestamps: true,
+    })
 
 export default mongooose.model("Collection", CollectionSchema)

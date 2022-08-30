@@ -89,20 +89,20 @@ export const login = async (req, res) => {
 export const getMe = async (req, res) => {
     try {
         const user = await UserModel.findById(req.userId)
-       
+
         if (!user) {
-                return res.status(404).json({
-                    message: "Такой пользователь не найден :("
-                })
+            return res.status(404).json({
+                message: "Такой пользователь не найден :("
+            })
         }
 
-        const { passwordHash, ...userData} = user._doc
+        const { passwordHash, ...userData } = user._doc
 
         res.json(userData)
     } catch (err) {
         console.log(err)
         res.status(500).json({
-            message:"Нет доступа :("
+            message: "Нет доступа :("
         })
     }
 }

@@ -154,7 +154,7 @@ export const update = async (req, res) => {
     } catch (err) {
         console.log(err)
         res.status(500).json({
-            message:"Не уадлось обновить коллекцию"
+            message: "Не уадлось обновить коллекцию"
         })
     }
 }

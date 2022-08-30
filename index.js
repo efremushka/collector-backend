@@ -20,7 +20,7 @@ const app = express()
 
 const storage = multer.diskStorage({
     destination: (_, __, cb) => {
-        if (!fs.existsSync("uploads")){
+        if (!fs.existsSync("uploads")) {
             fs.mkdirSync("uploads")
         }
         cb(null, "uploads")
@@ -54,7 +54,6 @@ app.get("/collections/:id", CollectionController.getOne)
 app.post("/collections", checkAuth, collectionCreateValidator, handleValidationErrors, CollectionController.create)
 app.delete("/collections/:id", checkAuth, CollectionController.remove)
 app.patch("/collections/:id", checkAuth, collectionCreateValidator, handleValidationErrors, CollectionController.update)
-
 
 
 
