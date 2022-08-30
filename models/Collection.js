@@ -1,6 +1,6 @@
-import mongooose from "mongoose"
+import mongoose from "mongoose"
 
-const CollectionSchema = new mongooose.Schema({
+const CollectionSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -28,7 +28,7 @@ const CollectionSchema = new mongooose.Schema({
         default: 0,
     },
     user: {
-        type: mongooose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: true,
     }
@@ -38,4 +38,4 @@ const CollectionSchema = new mongooose.Schema({
         timestamps: true,
     })
 
-export default mongooose.model("Collection", CollectionSchema)
+export default mongoose.model("Collection", CollectionSchema)
