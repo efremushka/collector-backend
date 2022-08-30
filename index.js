@@ -3,7 +3,7 @@ import fs from "fs"
 import multer from "multer"
 import cors from "cors"
 
-import mongooose from "mongoose"
+import mongoose from "mongoose"
 
 import { registrationValidator, loginValidator, collectionCreateValidator } from "./validations.js"
 
@@ -11,7 +11,7 @@ import { handleValidationErrors, checkAuth } from "./utils/index.js"
 
 import { UserController, CollectionController } from "./controllers/index.js"
 
-mongooose
+mongoose
     .connect(process.env.MONGODB_URI)
     .then(() => console.log("MongoDB ok"))
     .catch((err) => console.log("MongoDB error, err"))
