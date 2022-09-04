@@ -34,7 +34,7 @@ const upload = multer({ storage })
 
 app.use(express.json())
 app.use(cors())
-app.use("uploads", express.static("uploads"))
+app.use("/uploads", express.static("uploads"))
 
 app.post("/auth/login", loginValidator, handleValidationErrors, UserController.login)
 app.post("/auth/registration", registrationValidator, handleValidationErrors, UserController.registration)
