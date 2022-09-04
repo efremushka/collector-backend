@@ -12,7 +12,7 @@ import { handleValidationErrors, checkAuth } from "./utils/index.js"
 import { UserController, CollectionController } from "./controllers/index.js"
 
 mongoose
-    .connect(process.env.MONGO)
+    .connect("mongodb+srv://admin:admin@cluster0.x2u2cn3.mongodb.net/project?retryWrites=true&w=majority")
     .then(() => console.log("MongoDB ok"))
     .catch((err) => console.log("MongoDB error, err"))
 
@@ -34,7 +34,7 @@ const upload = multer({ storage })
 
 app.use(express.json())
 app.use(cors())
-app.use("/uploads", express.static("uploads"))
+app.use("uploads", express.static("uploads"))
 
 app.post("/auth/login", loginValidator, handleValidationErrors, UserController.login)
 app.post("/auth/registration", registrationValidator, handleValidationErrors, UserController.registration)
